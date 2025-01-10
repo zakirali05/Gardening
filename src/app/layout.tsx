@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import HydrationWrapper from "./wrappers/hydration-wrapper";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,11 +26,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+              {/* <HydrationWrapper> */}
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full font-['Oswald']`}
       >
+        <Navbar/>
         {children}
+       
       </body>
+      {/* </HydrationWrapper>/ */}
     </html>
   );
 }
